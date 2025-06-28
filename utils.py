@@ -1,18 +1,16 @@
 def format_initial_user_prompt(user_prompt: str, user_form: str) -> str:
     """
-    Formats the initial user query with their form data
+    Formats the initial user prompt by combining the client's form data and query.
     
     Args:
-        user_prompt: User's question
-        user_form: User's form data
+        user_prompt: The user's initial question/query
+        user_form: The client's form data/information
         
     Returns:
-        str: Formatted query string
+        str: Combined prompt string in the format:
+             "Client's form: [user_form]\n\nClient's first query: [user_prompt]"
     """
-    return (
-        "User form data:\n"
-        f"{user_form}\n\n"
-        "User question:\n"
-        f"{user_prompt}\n\n"
-        "Please provide a detailed response considering the user's profile."
+    final_prompt: str = (
+        f"Client's form: {user_form}\n\nClient's first query: {user_prompt}"
     )
+    return final_prompt
